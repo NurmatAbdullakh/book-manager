@@ -1,8 +1,8 @@
 import "./App.css";
-import BooksComponent from "./components/Books";
+import Books from "./components/Books";
 
 function App() {
-  return <BooksComponent />;
+  return <Books />;
 }
 
 export default App;

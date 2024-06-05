@@ -12,10 +12,10 @@ import { IBook } from "../api/book/book.types";
 import { useBooks } from "../api/book/book.service";
 import { IBookFormValues } from "./BookForm";
 import BookModal from "./BookModal";
-import Message from "./NoBooks";
+import Message from "./Message";
 import { Empty } from "../assets/Empty";
 
-const BooksComponent = () => {
+const Books = () => {
   const { data: books, createBook, removeBook, updateBook } = useBooks();
   const [selectedBook, setSelectedBook] = useState<IBook | null>({
     title: "",
@@ -31,7 +31,6 @@ const BooksComponent = () => {
 
   useEffect(() => {
     if (books) {
-      // Extracting unique genres from books data
       const uniqueGenres = Array.from(new Set(books.map((book) => book.genre)));
       setGenres(uniqueGenres);
     }
@@ -143,4 +142,4 @@ const BooksComponent = () => {
   );
 };
 
-export default BooksComponent;
+export default Books;
