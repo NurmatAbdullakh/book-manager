@@ -12,6 +12,8 @@ import { IBook } from "../api/book/book.types";
 import { useBooks } from "../api/book/book.service";
 import { IBookFormValues } from "./BookForm";
 import BookModal from "./BookModal";
+import Message from "./NoBooks";
+import { Empty } from "../assets/Empty";
 
 const BooksComponent = () => {
   const { data: books, createBook, removeBook, updateBook } = useBooks();
@@ -112,17 +114,23 @@ const BooksComponent = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2}>
-        {filteredBooks?.map((book) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={book.id}>
-            <BookCard
-              book={book}
-              onUpdate={() => handleOpenModal(book)}
-              onDelete={() => removeBook(book)}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      {books?.length === 0 ? (
+        <Message message="No books" icon={<Empty />} />
+      ) : !filteredBooks?.length ? (
+        <Message message="No books" icon={<Empty />} />
+      ) : (
+        <Grid container spacing={2}>
+          {filteredBooks?.map((book) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={book.id}>
+              <BookCard
+                book={book}
+                onUpdate={() => handleOpenModal(book)}
+                onDelete={() => removeBook(book)}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      )}
 
       <BookModal
         isOpen={isModalOpen}
