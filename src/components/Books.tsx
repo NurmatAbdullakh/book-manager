@@ -117,7 +117,7 @@ const Books = () => {
       </Grid>
 
       {/* book cards */}
-      {books?.length === 0 ? (
+      {!books?.length ? (
         <Message message="No books" icon={<Empty />} />
       ) : !filteredBooks?.length ? (
         <Message message="No matches" icon={<Empty />} />
