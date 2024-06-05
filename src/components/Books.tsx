@@ -65,6 +65,7 @@ const Books = () => {
 
   return (
     <Container>
+      {/* header */}
       <Grid container alignItems={"center"} spacing={2} mb={2}>
         <Grid
           display={"flex"}
@@ -84,6 +85,8 @@ const Books = () => {
           </Button>
         </Grid>
       </Grid>
+
+      {/* filter */}
       <Grid container alignItems={"center"} spacing={2}>
         <Grid item xs={12} sm={4}>
           <TextField
@@ -113,6 +116,7 @@ const Books = () => {
         </Grid>
       </Grid>
 
+      {/* book cards */}
       {books?.length === 0 ? (
         <Message message="No books" icon={<Empty />} />
       ) : !filteredBooks?.length ? (
@@ -131,6 +135,7 @@ const Books = () => {
         </Grid>
       )}
 
+      {/* book modal */}
       <BookModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
