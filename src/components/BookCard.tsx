@@ -36,6 +36,7 @@ const BookCard: React.FC<props> = ({ book, onUpdate, onDelete }) => {
           </Typography>
           <Typography
             variant="body2"
+            minHeight={80}
             sx={{
               overflow: "hidden",
               textOverflow: "ellipsis",
