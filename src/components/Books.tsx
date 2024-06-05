@@ -67,14 +67,7 @@ const Books = () => {
     <Container>
       {/* header */}
       <Grid container alignItems={"center"} spacing={2} mb={2}>
-        <Grid
-          display={"flex"}
-          gap={2}
-          alignItems={"center"}
-          item
-          xs={12}
-          sm={4}
-        >
+        <Grid display={"flex"} gap={2} alignItems={"center"} item xs={12}>
           <Typography variant="h4">Books</Typography>
           <Button
             variant="contained"
