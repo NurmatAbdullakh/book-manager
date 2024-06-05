@@ -34,7 +34,18 @@ const BookCard: React.FC<props> = ({ book, onUpdate, onDelete }) => {
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
             {book?.author}
           </Typography>
-          <Typography variant="body2">{book?.description}</Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 4,
+            }}
+          >
+            {book?.description}
+          </Typography>
           <Typography sx={{ mt: 1 }} color="text.secondary">
             Genre: {book?.genre}
           </Typography>
